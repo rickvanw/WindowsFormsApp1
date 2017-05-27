@@ -31,31 +31,79 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.quitTrayOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.openTrayOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginTrayOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutTrayOption = new System.Windows.Forms.ToolStripMenuItem();
             this.exerciseName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.exerciseRepetitions = new System.Windows.Forms.Label();
             this.exerciseVideoBrowser = new System.Windows.Forms.WebBrowser();
             this.exerciseDescriptionBrowser = new System.Windows.Forms.WebBrowser();
             this.exerciseImageBrowser = new System.Windows.Forms.WebBrowser();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.doneWithExercise = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonDislike = new System.Windows.Forms.Button();
             this.buttonLike = new System.Windows.Forms.Button();
             this.buttonNotDone = new System.Windows.Forms.Button();
             this.buttonDone = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // notifyIcon1
             // 
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "KomInBeweging";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.BalloonTipClicked += new System.EventHandler(this.notifyIcon1_BalloonTipClicked);
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quitTrayOption,
+            this.openTrayOption,
+            this.loginTrayOption,
+            this.logoutTrayOption});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(176, 124);
+            // 
+            // quitTrayOption
+            // 
+            this.quitTrayOption.Name = "quitTrayOption";
+            this.quitTrayOption.Size = new System.Drawing.Size(175, 30);
+            this.quitTrayOption.Text = "Afsluiten";
+            this.quitTrayOption.Click += new System.EventHandler(this.quitTrayOption_Click);
+            // 
+            // openTrayOption
+            // 
+            this.openTrayOption.Name = "openTrayOption";
+            this.openTrayOption.Size = new System.Drawing.Size(175, 30);
+            this.openTrayOption.Text = "Openen";
+            this.openTrayOption.Click += new System.EventHandler(this.openTrayOption_Click);
+            // 
+            // loginTrayOption
+            // 
+            this.loginTrayOption.Name = "loginTrayOption";
+            this.loginTrayOption.Size = new System.Drawing.Size(175, 30);
+            this.loginTrayOption.Text = "Inloggen";
+            this.loginTrayOption.Click += new System.EventHandler(this.loginTrayOption_Click);
+            // 
+            // logoutTrayOption
+            // 
+            this.logoutTrayOption.Name = "logoutTrayOption";
+            this.logoutTrayOption.Size = new System.Drawing.Size(175, 30);
+            this.logoutTrayOption.Text = "Uitloggen";
+            this.logoutTrayOption.Click += new System.EventHandler(this.logoutTrayOption_Click);
             // 
             // exerciseName
             // 
@@ -65,7 +113,7 @@
             this.exerciseName.Location = new System.Drawing.Point(60, 46);
             this.exerciseName.MaximumSize = new System.Drawing.Size(600, 67);
             this.exerciseName.Name = "exerciseName";
-            this.exerciseName.Size = new System.Drawing.Size(205, 55);
+            this.exerciseName.Size = new System.Drawing.Size(303, 67);
             this.exerciseName.TabIndex = 2;
             this.exerciseName.Text = "Planken";
             // 
@@ -76,7 +124,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(163)))), ((int)(((byte)(231)))));
             this.label2.Location = new System.Drawing.Point(688, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 31);
+            this.label2.Size = new System.Drawing.Size(245, 46);
             this.label2.TabIndex = 3;
             this.label2.Text = "Herhalingen";
             // 
@@ -87,7 +135,7 @@
             this.exerciseRepetitions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(163)))), ((int)(((byte)(231)))));
             this.exerciseRepetitions.Location = new System.Drawing.Point(744, 80);
             this.exerciseRepetitions.Name = "exerciseRepetitions";
-            this.exerciseRepetitions.Size = new System.Drawing.Size(52, 55);
+            this.exerciseRepetitions.Size = new System.Drawing.Size(76, 82);
             this.exerciseRepetitions.TabIndex = 4;
             this.exerciseRepetitions.Text = "5";
             // 
@@ -96,7 +144,7 @@
             this.exerciseVideoBrowser.Location = new System.Drawing.Point(128, 392);
             this.exerciseVideoBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.exerciseVideoBrowser.Name = "exerciseVideoBrowser";
-            this.exerciseVideoBrowser.Size = new System.Drawing.Size(620, 350);
+            this.exerciseVideoBrowser.Size = new System.Drawing.Size(620, 349);
             this.exerciseVideoBrowser.TabIndex = 6;
             // 
             // exerciseDescriptionBrowser
@@ -120,6 +168,46 @@
             this.exerciseImageBrowser.ScrollBarsEnabled = false;
             this.exerciseImageBrowser.Size = new System.Drawing.Size(258, 208);
             this.exerciseImageBrowser.TabIndex = 8;
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.BackColor = System.Drawing.Color.Transparent;
+            this.refreshButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.refreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.refreshButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.refreshButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.refreshButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshButton.ForeColor = System.Drawing.Color.Black;
+            this.refreshButton.Location = new System.Drawing.Point(340, 368);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(200, 50);
+            this.refreshButton.TabIndex = 15;
+            this.refreshButton.Text = "Klik hier om opnieuw te proberen";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Visible = false;
+            this.refreshButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.refreshButton_MouseClick);
+            // 
+            // doneWithExercise
+            // 
+            this.doneWithExercise.BackColor = System.Drawing.Color.White;
+            this.doneWithExercise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.doneWithExercise.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.doneWithExercise.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.doneWithExercise.FlatAppearance.BorderSize = 0;
+            this.doneWithExercise.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.doneWithExercise.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.doneWithExercise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.doneWithExercise.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doneWithExercise.ForeColor = System.Drawing.Color.Black;
+            this.doneWithExercise.Location = new System.Drawing.Point(752, 768);
+            this.doneWithExercise.Name = "doneWithExercise";
+            this.doneWithExercise.Size = new System.Drawing.Size(100, 50);
+            this.doneWithExercise.TabIndex = 16;
+            this.doneWithExercise.Text = "Klaar";
+            this.doneWithExercise.UseVisualStyleBackColor = false;
+            this.doneWithExercise.MouseClick += new System.Windows.Forms.MouseEventHandler(this.doneWithExercise_MouseClick);
             // 
             // pictureBox3
             // 
@@ -205,44 +293,70 @@
             this.buttonDone.UseVisualStyleBackColor = false;
             this.buttonDone.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pictureBox1
+            // comboBox1
             // 
-            this.pictureBox1.Image = global::WindowsFormsApp1.Properties.Resources.exercise;
-            this.pictureBox1.Location = new System.Drawing.Point(66, 162);
-            this.pictureBox1.MaximumSize = new System.Drawing.Size(250, 200);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(100, 100);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(250, 144);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Location = new System.Drawing.Point(32, 768);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(101, 21);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(32, 789);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 29);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Uitstellen";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.ClientSize = new System.Drawing.Size(884, 848);
+            this.ClientSize = new System.Drawing.Size(884, 844);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.doneWithExercise);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.buttonDislike);
             this.Controls.Add(this.buttonLike);
             this.Controls.Add(this.buttonNotDone);
             this.Controls.Add(this.buttonDone);
-            this.Controls.Add(this.exerciseImageBrowser);
             this.Controls.Add(this.exerciseDescriptionBrowser);
             this.Controls.Add(this.exerciseVideoBrowser);
             this.Controls.Add(this.exerciseRepetitions);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.exerciseName);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.exerciseImageBrowser);
+            this.Controls.Add(this.refreshButton);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Kom in Beweging";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,7 +365,6 @@
         #endregion
 
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label exerciseName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label exerciseRepetitions;
@@ -264,6 +377,15 @@
         private System.Windows.Forms.Button buttonDislike;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Button doneWithExercise;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem quitTrayOption;
+        private System.Windows.Forms.ToolStripMenuItem openTrayOption;
+        private System.Windows.Forms.ToolStripMenuItem loginTrayOption;
+        private System.Windows.Forms.ToolStripMenuItem logoutTrayOption;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
